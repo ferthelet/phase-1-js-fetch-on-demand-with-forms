@@ -15,15 +15,14 @@ const init = () => {
         // console.log(inputForm.children[1].value);
         // OR
         // console.log(document.querySelector("#searchByID").value);
-
-        const input = inputForm.children[1];
-        console.log(input.value);
+        const input = document.querySelector("#searchByID");
 
         fetch(`http://localhost:3000/movies/${input.value}`)
         .then(res => res.json())
         .then(data => {
             const title = document.querySelector("#movieDetails h4");
             const summary = document.querySelector("#movieDetails p");
+            
             title.innerText = data.title;
             summary.innerText = data.summary;
         });
